@@ -1,4 +1,4 @@
-""
+"""
 spaceshooter.py
 Author: vinzentmoesch
 Credit: Liam
