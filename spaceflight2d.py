@@ -180,6 +180,7 @@ class SpaceShip(Sprite):
                     self.countersecond += 1
                     print(self.countersecond)
                     self.counterstep = 0
+                
  
         
         
@@ -219,6 +220,8 @@ class SpaceShip(Sprite):
         
     def explosionOff(self, event):
         self.visible = True
+        self.boom = 0
+        self.countersecond = 0
  
 class SpaceGame(App):
     """
