@@ -1,4 +1,4 @@
-"""
+""
 spaceshooter.py
 Author: vinzentmoesch
 Credit: Liam
@@ -42,7 +42,6 @@ class Stars(Sprite):
         super().__init__(Stars.asset, position)
         self.scale = 0.23
          
-"""
 class astroid(Sprite):
     asset = ImageAsset("images/asteroid1.png", 
     Frame(0,0,72,72), 4, 'vertical')
@@ -84,11 +83,10 @@ class astroid(Sprite):
         self.rotation += self.avr
         self.x += self.avx
         self.y += self.avy
-"""
-"""
+
 class SpaceShip(Sprite):
     """
-    #Animated space ship
+    Animated space ship
     """
     asset = ImageAsset("images/UFO2.png", 
         Frame(0,0,485,490), 6, 'vertical')
@@ -221,13 +219,7 @@ class SpaceShip(Sprite):
         
     def explosionOff(self, event):
         self.visible = True
-"""
-class Rocket1(Sprite):
-
-
-
-
-
+ 
 class SpaceGame(App):
     """
     Tutorial4 space game example.
@@ -248,12 +240,12 @@ class SpaceGame(App):
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
             ship.step()
-        #for Bstroid in self.getSpritesbyClass(astroid):
+        for Bstroid in self.getSpritesbyClass(astroid):
             Bstroid.step()
         
         #punktestand
 
  
              
-myapp = Spaceflight2d(0, 0)
+myapp = SpaceGame(0, 0)
 myapp.run() 
