@@ -61,6 +61,8 @@ class astroid(Sprite):
         self.randomxn = 0
         self.randomyn = 0
         
+        self.boom = 0
+
         self.randomx = zufaellig(0, 3)
         self.randomy = zufaellig(0, 3)
         self.randomxn = zufaellig(0,1)
@@ -83,6 +85,15 @@ class astroid(Sprite):
         self.rotation += self.avr
         self.x += self.avx
         self.y += self.avy
+
+        collidingwith = self.collidingWithSprites(astroid)
+        if len(collidingwith) > 0:
+            print("da")
+
+
+
+
+
 
 class SpaceShip(Sprite):
     """
@@ -217,10 +228,12 @@ class SpaceShip(Sprite):
      
     def explosionOn(self, x, y):
         self.visible = False
+        self.panic = 1
         
     def explosionOff(self, event):
         self.visible = True
         self.boom = 0
+        self.panic = -1
         self.countersecond = 0
  
 class SpaceGame(App):
