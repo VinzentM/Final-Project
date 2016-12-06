@@ -62,6 +62,8 @@ class astroid(Sprite):
         self.randomyn = 0
         
         self.boom = 0
+        self.slope = 0
+        self.bslope = 0
 
         self.randomx = zufaellig(0, 3)
         self.randomy = zufaellig(0, 3)
@@ -90,9 +92,9 @@ class astroid(Sprite):
         if len(clw) > 0:
             #print("da")
             ospr = clw[0]
-            print(ospr.x)
-            print(ospr.y)
-
+            self.slope = (self.y-ospr.y)/(self.x-ospr.x)
+            self.bslope=(1/self.slope)*-1
+            print(self.bslope)
 
 
 
