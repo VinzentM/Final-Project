@@ -86,10 +86,12 @@ class astroid(Sprite):
         self.x += self.avx
         self.y += self.avy
 
-        collidingwith = self.collidingWithSprites(astroid)
-        if len(collidingwith) > 0:
-            print("da")
-
+        clw = self.collidingWithSprites(astroid)
+        if len(clw) > 0:
+            #print("da")
+            ospr = clw[]
+            print(ospr.x)
+            print(ospr.y)
 
 
 
@@ -246,11 +248,10 @@ class SpaceGame(App):
         SpaceShip((700,500), self.width, self.height)
         astroid((234,423), self.width, self.height)
         astroid((572,245), self.width, self.height)
-        astroid((424,523), self.width, self.height)
-        astroid((234,240), self.width, self.height)
-        astroid((123,345), self.width, self.height)
-        astroid((234,423), self.width, self.height)
-        astroid((572,245), self.width, self.height)
+        #astroid((424,523), self.width, self.height)
+        #astroid((234,240), self.width, self.height)
+        #astroid((234,423), self.width, self.height)
+        #astroid((572,245), self.width, self.height)
 
   
     def step(self):
