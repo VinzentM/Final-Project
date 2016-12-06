@@ -64,7 +64,8 @@ class astroid(Sprite):
         self.boom = 0
         self.slope = 0
         self.bslope = 0
-
+        self.angle1 = 0
+        
         self.randomx = zufaellig(0, 3)
         self.randomy = zufaellig(0, 3)
         self.randomxn = zufaellig(0,1)
@@ -95,6 +96,8 @@ class astroid(Sprite):
             self.slope = (self.y-ospr.y)/(self.x-ospr.x)
             self.bslope=(1/self.slope)*-1
             print(self.bslope)
+            self.angle1 = math.atanh((self.y-ospr.y)/(self.x-ospr.x))
+            print(self.angle1)
 
 
 
