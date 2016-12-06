@@ -89,7 +89,7 @@ class astroid(Sprite):
         clw = self.collidingWithSprites(astroid)
         if len(clw) > 0:
             #print("da")
-            ospr = clw[]
+            ospr = clw[0]
             print(ospr.x)
             print(ospr.y)
 
