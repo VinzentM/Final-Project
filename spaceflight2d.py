@@ -44,7 +44,7 @@ class Stars(Sprite):
          
 class astroid(Sprite):
     asset = ImageAsset("images/asteroid1.png", 
-    Frame(0,0,72,72), 4, 'vertical')
+    Frame(5,5,62,62), 4, 'vertical')
     
     def __init__(self, position, width, height):
         super().__init__(astroid.asset, position)    
@@ -54,6 +54,7 @@ class astroid(Sprite):
         self.avy = 0
         self.avr = 0.05
         self.circularCollisionModel()
+        
 
         self.randomx = 0
         self.randomy = 0
@@ -65,13 +66,17 @@ class astroid(Sprite):
         self.slope = 0
         self.bslope = 0
         self.angle1 = 0
+        self.angle2 = 0
+
         
         self.randomx = zufaellig(0, 3)
         self.randomy = zufaellig(0, 3)
         self.randomxn = zufaellig(0,1)
         self.randomyn = zufaellig(0, 1)
-        self.avx = (self.randomx*-1)*6
-        self.avy = (self.randomy*-1)*6
+        #self.avx = (self.randomx*-1)*6
+        #self.avy = (self.randomy*-1)*6
+        self.avy = 8
+        self.avx = 5
         
     def step(self):
         # abfrage
@@ -96,11 +101,16 @@ class astroid(Sprite):
             self.slope = (self.y-ospr.y)/(self.x-ospr.x)
             self.bslope=(1/self.slope)*-1
             print(self.bslope)
-            self.angle1 = math.atanh((self.y-ospr.y)/(self.x-ospr.x))
+            self.angle1 = math.atan((self.y-ospr.y)/(self.x-ospr.x))
             print(self.angle1)
-
-
-
+            self.angle2 = math.atan((self.avy)/(self.avx))
+            """if self.vy < 0:
+                if self.vx < 0:
+                    self.angle2 = self.angle2 +2*math.pi
+            """
+            print(self.angle2)
+            self.avy = 0
+            self.avx = 0
 
 class SpaceShip(Sprite):
     """
