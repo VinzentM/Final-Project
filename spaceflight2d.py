@@ -100,17 +100,34 @@ class astroid(Sprite):
             ospr = clw[0]
             self.slope = (self.y-ospr.y)/(self.x-ospr.x)
             self.bslope=(1/self.slope)*-1
+            print("SLOPE")
             print(self.bslope)
+            print()
+            print("ANGLE 1")
             self.angle1 = math.atan((self.y-ospr.y)/(self.x-ospr.x))
             print(self.angle1)
+            print()
             self.angle2 = math.atan((self.avy)/(self.avx))
+            print("ANGLE 1")
+            print(self.angle2)
+            print()
+            
+            print("ANGLE 2 - ANGLE 1")
+            print(self.angle2-self.angle1)
+            print()
             
             self.avx = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
             self.avy = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
-            
-            
-            print(self.angle2)
 
+            print("VX")
+            print(self.avx)
+            print()
+
+            print("VY")
+            print(self.avy)
+            print()
+            while(self.x > 0):
+                print(1)
 
 class SpaceShip(Sprite):
     """
