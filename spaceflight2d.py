@@ -105,12 +105,11 @@ class astroid(Sprite):
             print(self.angle1)
             self.angle2 = math.atan((self.avy)/(self.avx))
             
-            self.vx = (math.sqrt(self.vx**2+self.vy**2)*math.cos(self.angle2-self.angle1))
-            self.vy = (math.sqrt(self.vx**2+self.vy**2)*math.sin(self.angle2-self.angle1))
+            self.avx = (math.sqrt(self.avx**2+self.avy**2)*math.cos(self.angle2-self.angle1))
+            self.avy = (math.sqrt(self.avx**2+self.avy**2)*math.sin(self.angle2-self.angle1))
             
             print(self.angle2)
-            self.avy = 0
-            self.avx = 0
+
 
 class SpaceShip(Sprite):
     """
