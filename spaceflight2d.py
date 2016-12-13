@@ -25,6 +25,7 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 import random
+import sys 
 
 # zufallszahl
 def zufaellig(stellen, komma):
@@ -126,8 +127,8 @@ class astroid(Sprite):
             print("VY")
             print(self.avy)
             print()
-            while(self.x > 0):
-                print(1)
+            sys.exit()
+
 
 class SpaceShip(Sprite):
     """
