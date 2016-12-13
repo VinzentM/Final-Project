@@ -105,8 +105,8 @@ class astroid(Sprite):
             print(self.angle1)
             self.angle2 = math.atan((self.avy)/(self.avx))
             
-            self.avx = (math.sqrt(self.avx**2+self.avy**2)*math.cos(self.angle2-self.angle1))
-            self.avy = (math.sqrt(self.avx**2+self.avy**2)*math.sin(self.angle2-self.angle1))
+            #self.avx = (math.sqrt(self.avx**2+self.avy**2)*math.cos(self.angle2-self.angle1))
+            #self.avy = (math.sqrt(self.avx**2+self.avy**2)*math.sin(self.angle2-self.angle1))
             
             print(self.angle2)
 
@@ -260,7 +260,7 @@ class SpaceGame(App):
         super().__init__(width, height)
         Stars((0,0))
         SpaceShip((700,500), self.width, self.height)
-        astroid((234,423), self.width, self.height)
+        astroid((234,623), self.width, self.height)
         astroid((572,245), self.width, self.height)
         #astroid((424,523), self.width, self.height)
         #astroid((234,240), self.width, self.height)
