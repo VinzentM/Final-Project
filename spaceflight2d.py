@@ -104,10 +104,10 @@ class astroid(Sprite):
             self.angle1 = math.atan((self.y-ospr.y)/(self.x-ospr.x))
             print(self.angle1)
             self.angle2 = math.atan((self.avy)/(self.avx))
-            """if self.vy < 0:
-                if self.vx < 0:
-                    self.angle2 = self.angle2 +2*math.pi
-            """
+            
+            self.vx = (math.sqrt(self.vx**2+self.vy**2)*math.cos(self.angle2-self.angle1)
+            self.vy= (math.sqrt(self.vx**2+self.vy**2)*math.sin(self.angle2-self.angle1)
+            
             print(self.angle2)
             self.avy = 0
             self.avx = 0
