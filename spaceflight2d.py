@@ -74,10 +74,10 @@ class astroid(Sprite):
         self.randomy = zufaellig(0, 3)
         self.randomxn = zufaellig(0,1)
         self.randomyn = zufaellig(0, 1)
-        #self.avx = (self.randomx*-1)*6
-        #self.avy = (self.randomy*-1)*6
-        self.avy = 8
-        self.avx = 5
+        self.avx = (self.randomx*-1)*6
+        self.avy = (self.randomy*-1)*6
+        #self.avy = 8
+        #self.avx = 5
         
     def step(self):
         # abfrage
@@ -118,7 +118,7 @@ class astroid(Sprite):
             print()
             
             avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
-            avya = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
+            avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
             
             avxax = avxa*math.cos(self.angle1)
             avxay = avxa*math.sin(self.angle1)
@@ -130,11 +130,11 @@ class astroid(Sprite):
             self.avy = avxay + avyay
             
             print("VX")
-            print(self.avxa)
+            print(avxa)
             print()
 
             print("VY")
-            print(self.avya)
+            print(avya)
             print()
             #sys.exit()
 
@@ -290,9 +290,9 @@ class SpaceGame(App):
         SpaceShip((700,500), self.width, self.height)
         astroid((234,623), self.width, self.height)
         astroid((572,245), self.width, self.height)
-        #astroid((424,523), self.width, self.height)
-        #astroid((234,240), self.width, self.height)
-        #astroid((234,423), self.width, self.height)
+        astroid((824,423), self.width, self.height)
+        astroid((234,240), self.width, self.height)
+        astroid((234,423), self.width, self.height)
         #astroid((572,245), self.width, self.height)
 
   
