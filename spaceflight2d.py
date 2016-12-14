@@ -124,7 +124,7 @@ class astroid(Sprite):
             avxay = avxa*math.sin(self.angle1)
             
             avyax = avya*math.cos(self.angle1+math.pi/2)
-            avxay = avya*math.sin(self.angle1+math.pi/2)
+            avyay = avya*math.sin(self.angle1+math.pi/2)
             
             self.avx = avxax + avyax
             self.avy = avxay + avyay
