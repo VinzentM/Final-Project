@@ -105,7 +105,7 @@ class astroid(Sprite):
             print(self.bslope)
             print()
             print("ANGLE 1")
-            self.angle1 = math.atan2(bslope)
+            self.angle1 = math.atan(self.bslope)
             print(self.angle1)
             print()
             self.angle2 = math.atan2((self.avy), (self.avx))
@@ -117,9 +117,18 @@ class astroid(Sprite):
             print(self.angle2-self.angle1)
             print()
             
-            self.avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
-            self.avya = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
-
+            avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
+            avya = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
+            
+            avxax = avxa*math.cos(angle1)
+            avxay = avxa*math.sin(angle1)
+            
+            avyax = avya*math.cos(angle1+math.pi/2)
+            avxay = avya*math.sin(angle1+math.pi/2)
+            
+            self.avx = avxax + avyax
+            self.avx = avxay + avyay
+            
             print("VX")
             print(self.avxa)
             print()
@@ -127,7 +136,7 @@ class astroid(Sprite):
             print("VY")
             print(self.avya)
             print()
-            sys.exit()
+            #sys.exit()
 
 
 class SpaceShip(Sprite):
