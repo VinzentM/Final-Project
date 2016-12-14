@@ -117,15 +117,15 @@ class astroid(Sprite):
             print(self.angle2-self.angle1)
             print()
             
-            self.avx = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
-            self.avy = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
+            self.avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
+            self.avya = (math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
 
             print("VX")
-            print(self.avx)
+            print(self.avxa)
             print()
 
             print("VY")
-            print(self.avy)
+            print(self.avya)
             print()
             sys.exit()
 
