@@ -105,7 +105,7 @@ class astroid(Sprite):
             print(self.bslope)
             print()
             print("ANGLE 1")
-            self.angle1 = math.atan2((self.y-ospr.y), (self.x-ospr.x))
+            self.angle1 = math.atan2(bslope)
             print(self.angle1)
             print()
             self.angle2 = math.atan2((self.avy), (self.avx))
