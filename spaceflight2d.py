@@ -109,7 +109,7 @@ class astroid(Sprite):
             print(self.angle1)
             print()
             self.angle2 = math.atan2((self.avy), (self.avx))
-            print("ANGLE 1")
+            print("ANGLE 2")
             print(self.angle2)
             print()
             
