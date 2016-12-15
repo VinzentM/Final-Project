@@ -97,7 +97,12 @@ class astroid(Sprite):
 
         clw = self.collidingWithSprites(astroid)
         if len(clw) > 0:
-            #print("da")
+            self.collidewithastroid(clw[0])
+            clw[0].collidewithastroid(self)
+
+
+    def collidewithastroid(self, other):
+        #print("da")
             ospr = clw[0]
             slope = (self.y-ospr.y)/(self.x-ospr.x)
             bslope = (1/slope)*-1
@@ -112,6 +117,7 @@ class astroid(Sprite):
             avyay = avya*math.sin(angle1+math.pi/2)
             self.avx = avxax + avyax
             self.avy = avxay + avyay
+            
             
 
 
