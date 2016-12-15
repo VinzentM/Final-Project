@@ -99,44 +99,20 @@ class astroid(Sprite):
         if len(clw) > 0:
             #print("da")
             ospr = clw[0]
-            self.slope = (self.y-ospr.y)/(self.x-ospr.x)
-            self.bslope=(1/self.slope)*-1
-            print("SLOPE")
-            print(self.bslope)
-            print()
-            print("ANGLE 1")
-            self.angle1 = math.atan(self.bslope)
-            print(self.angle1)
-            print()
-            self.angle2 = math.atan2((self.avy), (self.avx))
-            print("ANGLE 2")
-            print(self.angle2)
-            print()
+            slope = (self.y-ospr.y)/(self.x-ospr.x)
+            bslope = (1/slope)*-1
+            angle1 = math.atan(bslope)
+            angle2 = math.atan2((self.avy), (self.avx))
             
-            print("ANGLE 2 - ANGLE 1")
-            print(self.angle2-self.angle1)
-            print()
-            
-            avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(self.angle2-self.angle1))
-            avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(self.angle2-self.angle1))
-            
-            avxax = avxa*math.cos(self.angle1)
-            avxay = avxa*math.sin(self.angle1)
-            
-            avyax = avya*math.cos(self.angle1+math.pi/2)
-            avyay = avya*math.sin(self.angle1+math.pi/2)
-            
+            avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(angle2-angle1))
+            avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(angle2-angle1))
+            avxax = avxa*math.cos(angle1)
+            avxay = avxa*math.sin(angle1)
+            avyax = avya*math.cos(angle1+math.pi/2)
+            avyay = avya*math.sin(angle1+math.pi/2)
             self.avx = avxax + avyax
             self.avy = avxay + avyay
             
-            print("VX")
-            print(avxa)
-            print()
-
-            print("VY")
-            print(avya)
-            print()
-            #sys.exit()
 
 
 class SpaceShip(Sprite):
