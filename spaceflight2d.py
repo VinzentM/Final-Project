@@ -99,25 +99,47 @@ class astroid(Sprite):
         if len(clw) > 0:
             self.collidewithastroid(clw[0])
             clw[0].collidewithastroid(self)
+        
+        clws = self.collidingWithSprites(SpaceShip)
+        if len(clws) > 0:
+            self.collidewithship(clws[0])
+            clws[0].collidewithastroid(self)
 
 
     def collidewithastroid(self, other):
         #print("da")
-            ospr = clw[0]
-            slope = (self.y-ospr.y)/(self.x-ospr.x)
-            bslope = (1/slope)*-1
-            angle1 = math.atan(bslope)
-            angle2 = math.atan2((self.avy), (self.avx))
-            
-            avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(angle2-angle1))
-            avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(angle2-angle1))
-            avxax = avxa*math.cos(angle1)
-            avxay = avxa*math.sin(angle1)
-            avyax = avya*math.cos(angle1+math.pi/2)
-            avyay = avya*math.sin(angle1+math.pi/2)
-            self.avx = avxax + avyax
-            self.avy = avxay + avyay
-            
+        ospr = other
+        slope = (self.y-ospr.y)/(self.x-ospr.x)
+        bslope = (1/slope)*-1
+        angle1 = math.atan(bslope)
+        angle2 = math.atan2((self.avy), (self.avx))
+        
+        avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(angle2-angle1))
+        avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(angle2-angle1))
+        avxax = avxa*math.cos(angle1)
+        avxay = avxa*math.sin(angle1)
+        avyax = avya*math.cos(angle1+math.pi/2)
+        avyay = avya*math.sin(angle1+math.pi/2)
+        self.avx = avxax + avyax
+        self.avy = avxay + avyay
+        
+    def collidewithship(self, other):
+        #print("da")
+        ospr = other
+        slope = (self.y-ospr.y)/(self.x-ospr.x)
+        bslope = (1/slope)*-1
+        angle1 = math.atan(bslope)
+        angle2 = math.atan2((self.avy), (self.avx))
+        
+        avxa = (math.sqrt((self.avx**2)+(self.avy**2))*math.cos(angle2-angle1))
+        avya = (-1*math.sqrt((self.avx**2)+(self.avy**2))*math.sin(angle2-angle1))
+        avxax = avxa*math.cos(angle1)
+        avxay = avxa*math.sin(angle1)
+        avyax = avya*math.cos(angle1+math.pi/2)
+        avyay = avya*math.sin(angle1+math.pi/2)
+        self.avx = avxax + avyax
+        self.avy = avxay + avyay    
+        
             
 
 
@@ -253,14 +275,17 @@ class SpaceShip(Sprite):
      
      
     def explosionOn(self, x, y):
-        self.visible = False
-        self.panic = 1
+        #self.visible = False
+        #self.panic = 1
+        print(" boomm" )
         
     def explosionOff(self, event):
-        self.visible = True
-        self.boom = 0
-        self.panic = -1
-        self.countersecond = 0
+        #self.visible = True
+        #self.boom = 0
+        #self.panic = -1
+        #self.countersecond = 0
+        print(" boomm" )
+
  
 class SpaceGame(App):
     """
