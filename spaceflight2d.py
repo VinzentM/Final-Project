@@ -296,7 +296,7 @@ class SpaceShip2(Sprite):
     """
     Animated space ship
     """
-    asset = ImageAsset("images/UFO2.png", 
+    asset = ImageAsset("images/UFO3.png", 
         Frame(0,0,485,490), 6, 'vertical')
      
  
