@@ -150,6 +150,8 @@ class SpaceShip(Sprite):
         self.counterstep = 0
         self.countersecond = 0
         self.circularCollisionModel()
+        self.called = 0
+        
         
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.thrustLOn)
         SpaceGame.listenKeyEvent("keyup", "left arrow", self.thrustLOff)
@@ -211,20 +213,24 @@ class SpaceShip(Sprite):
         if len(collidingwith) > 0:
             self.boom = 1
             self.explosionOn(self.x, self.y)
+
         
         if self.boom == 0:
             if self.vx != 0 or self.vy != 0:
                 self.counterstep += 1
                 if self.counterstep == 20:
                     self.countersecond += 1
-                    print(self.countersecond)
                     self.counterstep = 0
+
+                    
                     
                     
         clw = self.collidingWithSprites(SpaceShip2)
         if len(clw) > 0:
             self.collidewithship(clw[0])
             clw[0].collidewithship(self)
+            
+
         
 
 
@@ -247,7 +253,7 @@ class SpaceShip(Sprite):
         
                 
  
-        
+
         
     def thrustLOn(self, event):
         self.thrustL = 1
@@ -283,6 +289,10 @@ class SpaceShip(Sprite):
     def explosionOn(self, x, y):
         self.visible = False
         self.panic = 1
+        if self.called == 1:
+            print("Green Player lost")
+            print("Green Player: ", self.countersecond)
+            self.called = 0
 
     def explosionOff(self, event):
         self.visible = True
