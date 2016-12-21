@@ -253,8 +253,8 @@ class SpaceShip(Sprite):
         
                 
  
-    def pointas(self):    
-        print(self.contersecond)
+    def pointsa(self):    
+        print(self.countersecond)
         
     def thrustLOn(self, event):
         self.thrustL = 1
@@ -419,7 +419,7 @@ class SpaceShip2(Sprite):
         self.vy = vxay + vyay
  
     def pointsa(self):    
-        print(self.contersecond)
+        print(self.countersecond)
         
     def thrustLOn(self, event):
         self.thrustL = 1
@@ -481,14 +481,23 @@ class SpaceGame(App):
         astroid((872,245), self.width, self.height)
         
         
-        SpaceGame.listenKeyEvent("keydown", "z", self.printpoints)
-        SpaceGame.listenKeyEvent("keyup", "z", self.printpointsnot)
+        SpaceGame.listenKeyEvent("keydown", "r", self.printpoints)
+        SpaceGame.listenKeyEvent("keyup", "r", self.printpointsnot)
         
     def printpoints(self, event):
-        SpaceShip.pointsa
-        SpaceShip2.pointsa
+        print("Player RED:")
+        for ship in self.getSpritesbyClass(SpaceShip2):
+            ship.pointsa()
+        print("")
+        print("")
+        print("Player Green")
+        for ship in self.getSpritesbyClass(SpaceShip):
+            ship.pointsa()    
+        print("")
     def printpointsnot(self, event):
         print("play again")
+        print("")
+
   
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip2):
