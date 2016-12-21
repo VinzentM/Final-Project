@@ -253,7 +253,8 @@ class SpaceShip(Sprite):
         
                 
  
-
+    def pointss(self):    
+        print(contersecond)
         
     def thrustLOn(self, event):
         self.thrustL = 1
@@ -285,20 +286,15 @@ class SpaceShip(Sprite):
     def panicOff(self, event):
         self.panic = -1
      
-     
     def explosionOn(self, x, y):
         self.visible = False
         self.panic = 1
-        if self.called == 1:
-            print("Green Player lost")
-            print("Green Player: ", self.countersecond)
-            self.called = 0
-
     def explosionOff(self, event):
         self.visible = True
         self.boom = 0
+
         self.panic = -1
-        self.countersecond = 0
+
 
 
 
@@ -396,7 +392,6 @@ class SpaceShip2(Sprite):
                 self.counterstep += 1
                 if self.counterstep == 20:
                     self.countersecond += 1
-                    print(self.countersecond)
                     self.counterstep = 0
                 
         clw = self.collidingWithSprites(SpaceShip)
@@ -423,7 +418,8 @@ class SpaceShip2(Sprite):
         self.vx = vxax + vyax
         self.vy = vxay + vyay
  
-        
+    def pointss(self):    
+        return(contersecond)
         
     def thrustLOn(self, event):
         self.thrustL = 1
@@ -464,6 +460,7 @@ class SpaceShip2(Sprite):
         self.visible = True
         self.boom = 0
         self.panic = -1
+
         self.countersecond = 0
  
 class SpaceGame(App):
@@ -482,7 +479,16 @@ class SpaceGame(App):
         astroid((234,240), self.width, self.height)
         astroid((234,423), self.width, self.height)
         astroid((872,245), self.width, self.height)
+        
+        
+        SpaceGame.listenKeyEvent("keydown", "z", self.printpoints)
+        #SpaceGame.listenKeyEvent("keyup", "a", self.printpointsnot)
+        
+    def printpoints(self, event):
+        SpaceShip.pointss
+        #print(SpaceShip2.countersecond)
 
+        
   
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip2):
