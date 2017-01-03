@@ -212,6 +212,7 @@ class SpaceShip(Sprite):
         collidingwith = self.collidingWithSprites(astroid)
         if len(collidingwith) > 0:
             self.boom = 1
+            ExplosionBig(self.position)
             self.explosionOn(self.x, self.y)
 
         
@@ -385,8 +386,9 @@ class SpaceShip2(Sprite):
         collidingwith = self.collidingWithSprites(astroid)
         if len(collidingwith) > 0:
             self.boom = 1
-            self.explosionOn(self.x, self.y)
-        
+            ExplosionBig(self.position)
+            self.explosionOn()
+            
         if self.boom == 0:
             if self.vx != 0 or self.vy != 0:
                 self.counterstep += 1
@@ -452,7 +454,7 @@ class SpaceShip2(Sprite):
         self.panic = -1
      
      
-    def explosionOn(self, x, y):
+    def explosionOn(self,):
         self.visible = False
         self.panic = 1
 
@@ -462,7 +464,25 @@ class SpaceShip2(Sprite):
         self.panic = -1
 
         self.countersecond = 0
- 
+
+
+
+class ExplosionBig(Sprite):
+    
+    asset = ImageAsset("images/explosion2.png", Frame(0,0,4800/25,195), 25)
+    
+    def __init__(self, position):
+        super().__init__(ExplosionBig.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.5)
+        
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 50:
+            self.destroy()
+            
+
 class SpaceGame(App):
     """
     Tutorial4 space game example.
