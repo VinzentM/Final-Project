@@ -477,7 +477,7 @@ class ExplosionBig(Sprite):
         self.center = (0.5, 0.5)
         
     def step(self):
-        self.setImage(self.image//2)  # slow it down
+        self.setImage(self.image//0.5)  # slow it down
         self.image = self.image + 1
         if self.image == 50:
             self.destroy()
@@ -526,7 +526,9 @@ class SpaceGame(App):
             ship.step()
         for Bstroid in self.getSpritesbyClass(astroid):
             Bstroid.step()
-        
+        explosions = self.getSpritesbyClass(ExplosionBig)
+        for explosion in explosions:
+            explosion.step()
         #punktestand
 
  
